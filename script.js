@@ -83,6 +83,27 @@ function createEquations() {
 //   itemContainer.appendChild(bottomSpacer);
 // }
 
+// Displays 3, 2, 1, Go!
+function countdownStart(){
+  countdown.textContent = '3'
+  setTimeout(() => {
+    countdown.textContent = '2'
+  }, 1000)
+  setTimeout(() => {
+    countdown.textContent = '1'
+  }, 2000)
+  setTimeout(() => {
+    countdown.textContent = 'Go!'
+  }, 3000)
+}
+
+// Navigate from splash page to countdown page
+function showCountDown(){
+    countdownPage.hidden = false
+    splashPage.hidden = true
+    countdownStart()
+}
+
 // Get the value from the selected radio button
 function getRadioValue(){
   let radioValue
@@ -99,6 +120,10 @@ function getRadioValue(){
 function selectedQuestionAmount(e){
   e.preventDefault()
   questionAmount = getRadioValue()
+  if(questionAmount)
+  {
+    showCountDown()
+  }
 }
 
 startForm.addEventListener('click', ()=>{
